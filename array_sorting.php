@@ -1,16 +1,15 @@
 <?php 
 
-// Отдельный смартфон
 class Phone
 {
     public function __construct(string $title, float $price)
     {
-        $this->title = $title;
-        $this->price = $price;
+        $this->phoneTitle = $title;
+        $this->phonePrice = $price;
     }
 }
 
-// Коллекция смартфонов
+
 class Phones
 {
 
@@ -29,7 +28,7 @@ class Phones
         }
     }
 
-    public function sort(string $field = Phones::PRICE)
+    public function sort(string $field = Phones::PRICE): void
     {
                
         $this->sortingType = $field;
@@ -38,11 +37,12 @@ class Phones
         });
     }
 
-    public function print() {
+    public function print(): void  
+    {
         echo "\n" . 'Sorting by ' . $this->sortingType . ": \n";
 
         foreach ($this->list as $phone) {
-            echo 'Phone: ' . $phone->title . ' (' . $phone->price . " p.) \n";
+            echo 'Phone: ' . $phone->phoneTitle . ' (' . $phone->phonePrice . " p.) \n";
         }
     }
 }
